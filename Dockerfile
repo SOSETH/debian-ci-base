@@ -13,7 +13,7 @@ RUN apt update && \
      cmake \
      extra-cmake-modules \
      git \
-     dh-golang
+     dh-golang \
      libterm-readline-gnu-perl && \
   apt clean && \
   rm -Rf /var/lib/apt/lists/*
