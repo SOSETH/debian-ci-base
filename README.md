@@ -7,6 +7,7 @@ docker image used for Golang/C++ debian package builds.
 |------|------------|
 |master|Debian unstable|
 |stretch|Debian stretch|
+|buster|Debian buster|
 
 ## License
 Apache 2.0
