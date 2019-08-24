@@ -3,6 +3,7 @@ image: docker:stable
 before_script:
   - docker info
   - docker login -u $CI_DOCKERHUB_USER -p $CI_DOCKERHUB_TOKEN
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
 build:
   stage: build
@@ -10,3 +11,5 @@ build:
     - 'DEBVERSION=$([[ $CI_COMMIT_REF_NAME = "master" ]] && echo "unstable" || echo $CI_COMMIT_REF_NAME)'
     - docker build -t soseth/debian-ci-base:$CI_COMMIT_REF_NAME --build-arg BRANCH=$DEBVERSION .
     - docker push soseth/debian-ci-base:$CI_COMMIT_REF_NAME
+    - docker tag soseth/debian-ci-base:$CI_COMMIT_REF_NAME docker.git.sos.ethz.ch/isg/debian-ci-base:$CI_COMMIT_REF_NAME
+    - docker push docker.git.sos.ethz.ch/isg/debian-ci-base:$CI_COMMIT_REF_NAME
