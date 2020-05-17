@@ -9,7 +9,7 @@ build:
   stage: build
   script:
     - 'DEBVERSION=$([[ $CI_COMMIT_REF_NAME = "master" ]] && echo "unstable" || echo $CI_COMMIT_REF_NAME)'
-    - docker build -t soseth/debian-ci-base:$CI_COMMIT_REF_NAME --build-arg BRANCH=$DEBVERSION .
+    - docker build --no-cache=true -t soseth/debian-ci-base:$CI_COMMIT_REF_NAME --build-arg BRANCH=$DEBVERSION .
     - docker push soseth/debian-ci-base:$CI_COMMIT_REF_NAME
     - docker tag soseth/debian-ci-base:$CI_COMMIT_REF_NAME docker.git.sos.ethz.ch/isg/debian-ci-base:$CI_COMMIT_REF_NAME
     - docker push docker.git.sos.ethz.ch/isg/debian-ci-base:$CI_COMMIT_REF_NAME
