@@ -1,4 +1,4 @@
-ARG BRANCH=unstable
+ARG BRANCH=bullseye
 FROM debian:${BRANCH}
 
 ADD bazel.key /
@@ -27,7 +27,7 @@ RUN apt update && \
      zlib1g-dev \
      unzip \
      python \
-     openjdk-8-jdk-headless \
+     openjdk-11-jdk-headless \
      bazel && \
   apt clean && \
   rm -Rf /var/lib/apt/lists/*
