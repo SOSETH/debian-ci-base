@@ -26,7 +26,7 @@ RUN apt-get update -qq && \
      g++ \
      zlib1g-dev \
      unzip \
-     python \
+     python3 \
      openjdk-11-jdk-headless \
      bazel && \
   apt-get clean && \
