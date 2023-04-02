@@ -15,7 +15,6 @@ RUN apt-get update -qq && \
      build-essential \
      git-buildpackage \
      golang \
-     golang-glide \
      cmake \
      extra-cmake-modules \
      git \
