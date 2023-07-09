@@ -26,4 +26,4 @@ RUN apt-get update -qq && \
   apt-get -y -t bullseye-backports install golang && \
   apt-get clean && \
   rm -Rf /var/lib/apt/lists/* && \
-  go get github.com/bazelbuild/bazelisk
+  go install github.com/bazelbuild/bazelisk@latest
