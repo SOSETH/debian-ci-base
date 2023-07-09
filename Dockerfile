@@ -3,13 +3,14 @@ FROM debian:${BRANCH}
 
 RUN apt-get update -qq && \
   apt-get upgrade -qq && \
+  echo "deb http://deb.debian.org/debian bullseye-backports main" >> /etc/apt/sources.list.d/backports.list && \
   apt-get install -qq gnupg2 && \
   apt-get update -qq && \
   apt-get install -qq ca-certificates \
      curl \
      build-essential \
      git-buildpackage \
-     golang \
+     golang/bullseye-backports \
      golang-glide \
      cmake \
      extra-cmake-modules \
