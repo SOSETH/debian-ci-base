@@ -25,4 +25,4 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
      openjdk-11-jdk-headless && \
   apt-get clean && \
   rm -Rf /var/lib/apt/lists/* && \
-  go get github.com/bazelbuild/bazelisk
+  go install github.com/bazelbuild/bazelisk@latest
