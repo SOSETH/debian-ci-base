@@ -1,7 +1,8 @@
 ARG BRANCH=bookworm
 FROM debian:${BRANCH}
 
-RUN apt-get update -qq && \
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
+  apt-get update -qq && \
   apt-get upgrade -qq && \
   apt-get install -qq gnupg2 && \
   apt-get update -qq && \
@@ -24,4 +25,4 @@ RUN apt-get update -qq && \
      openjdk-17-jdk-headless && \
   apt-get clean && \
   rm -Rf /var/lib/apt/lists/* && \
-  go get github.com/bazelbuild/bazelisk
+  go install github.com/bazelbuild/bazelisk@latest
