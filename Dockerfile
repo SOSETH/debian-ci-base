@@ -10,7 +10,6 @@ RUN apt-get update -qq && \
      curl \
      build-essential \
      git-buildpackage \
-     golang/bullseye-backports \
      golang-glide \
      cmake \
      extra-cmake-modules \
@@ -24,6 +23,7 @@ RUN apt-get update -qq && \
      unzip \
      python3 \
      openjdk-11-jdk-headless && \
+  apt-get -y -t bullseye-backports install golang && \
   apt-get clean && \
   rm -Rf /var/lib/apt/lists/* && \
   go get github.com/bazelbuild/bazelisk
