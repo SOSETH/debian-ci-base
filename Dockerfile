@@ -1,4 +1,4 @@
-ARG BRANCH=bookworm
+ARG BRANCH=
 FROM debian:${BRANCH}
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
